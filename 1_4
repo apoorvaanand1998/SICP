@@ -1,0 +1,14 @@
+Applying applicative order on the procedure
+
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+
+on the two cases of b, for example, a = 4 and (b = 5 or -5), we get
+
+((if (> 5 0) + -) 4 5)
+(+ 4 5)
+9
+
+((if (> -5 0) + -) 4 -5)
+(- 4 -5)
+9
