@@ -1,0 +1,3 @@
+In applicative order, since the expressions are evaluated first (to the extent that they can be), and then substituted, the (test 0 (p)) would lead to an infinite loop/recursion because of the (p) being evaluated first.
+
+Whereas in normal order evaluation, since they are first expanded, eventually the if expression in test would disregard the (p) and we would get an answer of 0.
