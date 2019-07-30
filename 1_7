@@ -1,0 +1,5 @@
+The good-enough? test is inadequate for finding the square roots of very small numbers because it uses a tolerance of 0.001, therefore any number small enough, around 0.001 (or smaller) would have a large error in it's square root.
+
+Example - If we do (sqrt-iter 1.0 0.005), we get 0.0364, whereas the actual sqrt is 0.0223.
+
+In the case of large numbers, there is data lost because of limited precision. What this means is, take a big number such as 12312412452145123213123, now store this variable as x. Now, let set y as x/2, y would equal 6.15..*10^21 and y*2 would NOT be equal to x, because the last few trailing digit's information would be lost. Now, seeing how this data is lost, our sqrt-iter would not work for very large numbers.
