@@ -1,0 +1,1 @@
+When Alyssa attempts to use this to compute square roots, no value is returned because of infinite recursion. When sqrt-iter tries to use the new-if, new-if takes the then-clause as one of it's parameters and attempts to evaluate it because of applicative order evaluation. This leads to sqrt-iter being called again and again in the new-if.
