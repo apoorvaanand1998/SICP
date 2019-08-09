@@ -1,0 +1,3 @@
+The first process is recursive because there is "stack" that has to keep track of the increments that have to be made after the whole thing is deferred.
+
+The second process is iterative, as the "shape" of the process remains the same and there is no need to keep track of any more environments than the one where the procedure is being executed.
