@@ -1,4 +1,4 @@
-#lang racket
+#lang sicp
 
 (define (cbrt-iter guess n)
   (if (good-enough? guess n)
