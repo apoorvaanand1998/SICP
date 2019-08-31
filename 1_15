@@ -1,3 +1,3 @@
 a) p is called 5 times. This can be shown using the substitution model.
 
-b) The order of growth in both number of steps and space is logarithmic. In terms of a, it takes log(base 3)(a/0.1) number of steps.
+b) The order of growth in both number of steps and space is logarithmic. In terms of a, it takes log(base 3)(10*a) number of steps.
