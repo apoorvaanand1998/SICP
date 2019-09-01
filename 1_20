@@ -1,0 +1,6 @@
+After using the substitution model and evaluating (gcd 206 40) we normal order evaluation, we see that there are 17 remainder operations as opposed to the 4 we have to do in applicative order evaluation.
+
+(gcd 206 40)
+(gcd 40 (remainder 206 40))
+(gcd (remainder 206 40) (remainder 40 (remainder 206 40)))
+(...2 more)
