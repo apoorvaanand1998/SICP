@@ -1,12 +1,13 @@
 #lang sicp
 
-(define (fast-expt-i b n eo)
-  (define (even? n)
-    (= (remainder n 2) 0))
-  (cond ((= n 0) 1)
-        ((and (= n 1) (= eo 0)) b)
-        ((and (= n 1) (not (= eo 0))) (* eo b))
-        ((even? n) (fast-expt-i (* b b) (/ n 2) eo))
-        (else (fast-expt-i (* b b) (/ (- n 1) 2) b))))
+(define (fast-expt b n)
+  (define (fast-expt-i b n a)
+    (cond ((= n 0) a)
+          ((even? n) (fast-expt-i (* b b) (/ n 2) a))
+          (else (fast-expt-i b (- n 1) (* a b)))))
+  (fast-expt-i b n 1))
 
-(fast-expt-i 5 5 0)
+(fast-expt 2 0)
+(fast-expt 2 6)
+(fast-expt 2 5)
+(fast-expt 4 23)
