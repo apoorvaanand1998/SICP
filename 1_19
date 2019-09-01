@@ -1,0 +1,16 @@
+The question states that the Transformation T(p', q') is of the same form as the Transformation T(p, q), and that the way they're related is T^2n = T'^n.
+
+Applying transformation T(p, q) twice on (a, b), we get:
+a = bq + aq + ap                 - (1)
+b = bp + aq
+
+a = (bp + aq)q + (bq + aq + ap)q + (bq + aq + ap)p
+b = (bp + aq)p + (bq + aq + ap)q
+
+Solving these, so we get the above equations in form (1), we get,
+
+a = b(q^2 + 2pq) + a(q^2 + 2pq) + a(p^2 + q^2)
+b = b(p^2 + q^2) + a(q^2 + 2pq)
+
+Therefore p' = p^2 + q^2
+      and q' = q^2 + 2pq
