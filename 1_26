@@ -1,0 +1,1 @@
+By defining expmod the way Louis has, the process changes from linear recursive to tree recursive. The depth of tree grows logarithmically and the number of nodes is exponential. Therefore the whole process becomes O(n)
