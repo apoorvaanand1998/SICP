@@ -1,0 +1,1 @@
+The interpreter eventually has to evaluate (2 2) which causes an error.
