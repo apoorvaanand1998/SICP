@@ -13,7 +13,7 @@
       (try-rec (+ k 1))))
 
 (define (cont-frac-iter n d k count result)
-  (if (= 0 count)
+  (if (= 1 count)
       result
       (cont-frac-iter n d k (- count 1)
                       (/ (n (- count 1)) (+ (d (- count 1)) result)))))
@@ -25,5 +25,5 @@
                10 1)
 (cont-frac-iter (lambda (i) 1.0)
                 (lambda (i) 1.0)
-                9 9
+                10 10 
                 (/ ((lambda (i) 1.0) 1.0) ((lambda (i) 1.0) 1.0)))
