@@ -1,4 +1,4 @@
-#lang racket
+#lang sicp
 (define (cont-frac-rec n d k count)
   (if (= count k)
       (/ (n k) (d k))

@@ -1,4 +1,4 @@
-#lang racket
+#lang sicp
 (define tolerance 0.00001)
 (define (average x y) (/ (+ x y) 2))
 (define (fixed-point f first-guess)
