@@ -1,1 +1,17 @@
-Space grows linearly and time grows exponentially
+Space grows linearly and time grows exponentially.
+
+From the textbook, we know that the space complexity is proportional to the maximum depth of the tree spawned from the recursive process. The maximum depth that would be achieved in a tree for a counting change problem would be
+
+n (the amount to make change for) // smallest denomination
+
+So, the space grows O(n).
+
+Now to analyse the time complexity of the counting change problem, let us consider the problem where only one kind of denomination is available (let's assume 1). Then we can see that 2*n + 1 would be the number of nodes formed. Thus the time complexity with just 1 kind of denomination is O(n).
+
+Now, with two kinds of denominations (let's assume 5 and 1), we would get n // 5 number of nodes where 5 IS used. Each of these nodes (n, n-5, n-10...) can spawn a counting change problem with one denomination (which is O(n)), therefore this version of the counting change problem is O(n^2).
+
+With three kinds of denominations, we will notice the same pattern. We get n // (highest denomination) number of nodes that DO use the highest denomination and each of these nodes is capable of spawning the previous version of the counting change problem (i.e., with two denominations), so it is O(n^3).
+
+Thus we can see that the time complexity is O(n^(number of denominations)).
+
+For the counting change problem with 5 denominations, it is O(n^5).
