@@ -1,6 +1,33 @@
-After using the substitution model and evaluating (gcd 206 40) we normal order evaluation, we see that there are 17 remainder operations as opposed to the 4 we have to do in applicative order evaluation.
+Here's an illustration of the (gcd 206 40) process using normal-order evaluation.
+(I will be representing remainder with r)
 
-(gcd 206 40)
-(gcd 40 (remainder 206 40))
-(gcd (remainder 206 40) (remainder 40 (remainder 206 40)))
-(...2 more)
+(gcd 206
+     40)
+(gcd 40
+     (r 206 40))
+(gcd (r 206 40)
+     (r 40 (r 206 40)))
+(gcd (r 40 (r 206 40))
+     (r (r 206 40) (r 40 (r 206 40))))
+(gcd (r (r 206 40) (r 40 (r 206 40)))
+     (r (r 40 (r 206 40)) (r 40 (r 206 40))))
+
+It is at this point that the second argument of the gcd process (referred to as "right" from here, evaluates to 0).
+Therefore, now the first argument ("left") of the gcd process is evaluated.
+With these both, the total comes to 18 remainders.
+
+Here's psuedo-code to calculate the total number of remainders (if it takes k steps, in normal-order:
+
+left = right = tot_rem = 0
+
+while (k > 0):
+    temp = left
+    left = right
+    right = 1 + temp + right
+    tot_rem += right
+    k -= 1
+
+tot_rem += left
+
+In applicative-order evaluation, the total number of remainders is 0. That is, tot_rem = k (number of steps)
+    
