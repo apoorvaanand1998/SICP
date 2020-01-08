@@ -29,5 +29,5 @@ while (k > 0):
 
 tot_rem += left
 
-In applicative-order evaluation, the total number of remainders is 0. That is, tot_rem = k (number of steps)
+In applicative-order evaluation, the total number of remainders is 4. That is, tot_rem = k (number of steps)
     
