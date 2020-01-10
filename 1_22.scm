@@ -2,8 +2,8 @@
 
 (define (search-for-primes from counter)
   (if (> counter 0)
-      (cond ((prime? from) (and (timed-prime-test from) (search-for-primes (+ from 1) (- counter 1))))
-            (not (prime? from) (search-for-primes (+ from 1) counter)))))
+      (cond ((prime? from) (and (timed-prime-test from) (search-for-primes (+ from 2) (- counter 1))))
+            (else (search-for-primes (+ from 1) counter)))))
                
 (define (timed-prime-test n)
   (newline)
