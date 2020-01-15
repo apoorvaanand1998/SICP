@@ -3,7 +3,7 @@
 (define (recprod term a next b)
   (if (> a b)
       1
-      (recprod term (next a) next b)))
+      (* (term a) (recprod term (next a) next b))))
 
 (define (iterprod term a next b)
   (define (iter a result)
