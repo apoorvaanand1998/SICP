@@ -9,7 +9,7 @@
          (sum term (next a) next b))))
 
 (define (simpsons-rule f a b n)
-  (define h (/ (- b a) n))
+  (define h (/ (- b a) n)) ; should probably use let here but that's taught later
   (define (yk k) (f (+ a (* k h))))
   (define (inc2 x) (+ x 2))
   (define (4-terms)
