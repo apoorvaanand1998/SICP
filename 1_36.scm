@@ -1,18 +1,19 @@
 #lang sicp
-(define tolerance 0.00001)
-(define (average x y) (/ (+ x y) 2))
-(define (fixed-point f first-guess)
-  (define (close-enough? v1 v2)
-    (< (abs (- v1 v2)) tolerance))
-  (define (try guess)
-    (let ((next (f guess)))
-      (display next)
-      (newline)
-      (if (close-enough? guess next)
-          next
-          (try next))))
-  (try first-guess))
 
-(fixed-point (lambda (x) (/ (log 1000) (log x))) 2)
-(fixed-point (lambda (x) (average x (/ (log 1000) (log x)))) 2)
-; Converges in 1/3rd the amount of iterations when using average damping
+(define (fixed-point f initial-guess count)
+  (define (close-enough? guess)
+    (< (abs (- guess (f guess))) 0.00001))
+  (let ((guess (f initial-guess)))
+    (display guess)
+    (display " ")
+    (display count)
+    (newline)
+    (if (close-enough? guess)
+        (f guess)
+        (fixed-point f guess (+ count 1)))))
+
+(define (avg x y) (/ (+ x y) 2))
+
+(fixed-point (lambda (x) (/ (log 1000) (log x))) 2.0 0)
+(fixed-point (lambda (x) (avg x (/ (log 1000) (log x)))) 2.0 0)
+; Using average damping we get the fixed point in 8 iterations vs 32 without
