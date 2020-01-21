@@ -1,13 +1,19 @@
 #lang sicp
 
-(define (cont-frac-iter n d k count result)
-  (if (= 1 count)
-      result
-      (cont-frac-iter n d k (- count 1)
-                      (/ (n (- count 1)) (+ (d (- count 1)) result)))))
+(define (cont-frac n d k)
+  (define (cf-helper mid-frac k)
+    (if (= k 0)
+        mid-frac
+        (cf-helper (/ (n k) (+ (d k) mid-frac)) (- k 1))))
+  (cf-helper 0 k))
 
 (define (d i)
-  (cond ((or (= (remainder i 3) 1) (= (remainder i 3) 0)) 1.0)
-        (else (/ (+ i 1) 1.5))))
+  (if (= (remainder (+ i 1) 3) 0)
+      (- (+ i 1) (quotient (+ i 1) 3))
+      1))
 
-(cont-frac-iter (lambda (x) 1.0) d 100 100 (/ 1.0 (d 100)))
+(define (value-e)
+  (let ((rest (cont-frac (lambda (i) 1.0) d 100)))
+    (+ 2 rest)))
+
+(value-e)
