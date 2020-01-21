@@ -1,29 +1,35 @@
 #lang sicp
-(define (cont-frac-rec n d k count)
-  (if (= count k)
-      (/ (n k) (d k))
-      (/ (n count) (+ (d count) (cont-frac-rec n d k (+ count 1))))))
 
-(define (try-rec k)
-  (if (< (abs (- (cont-frac-rec (lambda (i) 1.0)
-                 (lambda (i) 1.0)
-                 k
-                 1) 0.6180)) 0.0001)
-      (display k)
-      (try-rec (+ k 1))))
+(define (cont-frac n d k)
+  (define (cf-helper mid-frac k)
+    (if (= k 0)
+        mid-frac
+        (cf-helper (/ (n k) (+ (d k) mid-frac)) (- k 1))))
+  (cf-helper 0 k))
 
-(define (cont-frac-iter n d k count result)
-  (if (= 1 count)
-      result
-      (cont-frac-iter n d k (- count 1)
-                      (/ (n (- count 1)) (+ (d (- count 1)) result)))))
+(define (cont-frac-rec n d k)
+  (define (cf-helper counter)
+    (if (= k counter)
+        (/ (n k) (d k))
+        (/ (n counter) (+ (d counter) (cf-helper (+ counter 1))))))
+  (cf-helper 1))
 
-(try-rec 1)
-(newline)
-(cont-frac-rec (lambda (i) 1.0)
-               (lambda (i) 1.0)
-               10 1)
-(cont-frac-iter (lambda (i) 1.0)
-                (lambda (i) 1.0)
-                10 10 
-                (/ ((lambda (i) 1.0) 1.0) ((lambda (i) 1.0) 1.0)))
+(display "Iterative ")
+(cont-frac (lambda (i) 1.0) (lambda (i) 1.0) 10)
+(display "Recursive ")
+(cont-frac-rec (lambda (i) 1.0) (lambda (i) 1.0) 10)
+
+(define (which-value-k true-value)
+  (define (found k)
+    (display "The k for which approximate value is accurate to 4 decimal places is ")
+    (display k))
+  (define (try-k k)
+    (let ((got-value (cont-frac (lambda (i) 1.0) (lambda (i) 1.0) k)))
+      
+      (if (and (< (- got-value true-value) 0.0001)
+                (> (- got-value true-value) 0.00001))
+          (found k)
+          (try-k (+ k 1)))))
+  (try-k 1))
+
+(which-value-k 0.6180)
