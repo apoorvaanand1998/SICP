@@ -59,5 +59,6 @@
                  1.0)))
 
 (nth-root 96889010407 13) ; should return 7
+(nth-root 3486784401 20) ; should return 3
            
 
