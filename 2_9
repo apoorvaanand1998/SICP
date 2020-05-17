@@ -1,0 +1,33 @@
+Proof that addition and subtraction of intervals is a function
+of their width :
+
+Consider interval i1 = [l1, u1] with width w1 = (u1 - l1) / 2
+and i2 = [l2, u2] with width w2 = (u2 - l2) / 2
+
+Case 1 - Addition
+
+We get interval iA = [(l1+l2), (u1+u2)]
+The width here = ((u1+u2) - (l1+l2)) / 2 = w1 + w2
+
+Case 2 - Subtraction
+
+We get interval iS = [(l1 + (-u2)), (u1 + (-l2))]
+The width here is also = w1 + w2
+
+In case of multiplication and division, this does not apply.
+This is because the lower-bound and upper-bound of the resultant
+interval is not strictly dependent on the lower-bound and
+upper-bound of i1 and i2 respectively.
+
+For example, consider i1 = [-1, 3] (w1 = 2) and i2 = [2, 9] (w2 = 3.5)
+Here addition = [1, 12] (w3 = 5.5)
+subtraction = [-10, 1] (w4 = 5.5)
+
+But in the case of multiplication we get the interval = [-9, 27]
+Here -9 is the product of the lower-bound of i1 with the UPPER BOUND
+of i2. And the width we get is 18.
+
+Similarly, with division we get interval = [-1/2, 3/2] with width 1.
+
+As we can see in neither the case of multiplication or division the
+resultant widths are a function of the original widths.
