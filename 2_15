@@ -1,0 +1,13 @@
+Yes, she is right. From Ex 2.13 we can see that during
+the multiplication of two intervals, their error perc-
+entages are added.
+
+The more number of uncertain variables in an algebraic
+expression, the larger the error percentages will be.
+Every "unnecessary" multiplication, will increase the
+width of the values, and although the final center
+value might be the same in the end, the width of the
+resultant interval would be much more.
+
+Thus par2 is the "better" program for parallel
+resistances.
