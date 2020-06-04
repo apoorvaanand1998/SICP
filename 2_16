@@ -1,0 +1,20 @@
+In interval arithmetic, equivalent algebraic expressions
+may lead to different answers because interval arithmetic
+does not strictly follow the rules of arithmetic in
+algebra. Any algebraic identity that has more than one
+occurence of an uncertain variable in it's RHS would "fail"
+in interval arithmetic.
+
+If one were to devise an interval-arithmetic package, one
+would have to implement identity to introduce a way for the
+user to get reciprocals. Just because two intervals are equal
+does not mean their division would lead to one, but the SAME
+interval divided by itself should lead to one.
+
+Perhaps it is possible to devise such an arithmetic package,
+but that seems very hard (as the problem hint states), and
+I am not even going to attempt doing such a thing.
+
+As a start to that interval package, one would have to devise
+a way to reduce algebraic expressions to their simplest form
+with the least number of occurences of uncertain variables.
