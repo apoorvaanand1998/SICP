@@ -1,0 +1,22 @@
+Let's consider two intervals
+
+A = 7.92, 8.08 = 8, 1%
+B = 12.74, 13.26 = 13, 2%
+
+Calculating parallel resistance, we get
+
+par1 = 4.72, 5.18 = 4.95, 4.64%
+par2 = 4.88, 5.02 = 4.95, 1.41%
+
+As we can see, Lem is right.
+
+Similarly, let's compute A / A and A / B
+
+(div-interval A A) = 1, 2%
+(div-interval A B) = 0.61, 3%
+
+As we can see, when one does A / A,
+they get 1 but also with the error percentage of 2%.
+
+This happens because during the computation, the
+error percentage get added (Ex 2.13).
