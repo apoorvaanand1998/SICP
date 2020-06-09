@@ -1,0 +1,13 @@
+The program produces the answer list in reverse order
+because it takes the first item from the things list
+and makes it the first item of the answer list. The
+second item when squared and consed into the answer list
+is now at the first position in the answer list and so
+on. Thus the final answer list is in reverse order.
+
+The second version of his program does not give him the
+answer he wants because cons takes two arguments, an item
+and a list and puts the item in the front of the list. By
+doing (cons answer (square (car things))) he creates a
+list of lists every time answer is consed into the LIST
+(square (car things)).
